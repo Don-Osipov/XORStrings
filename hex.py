@@ -16,11 +16,11 @@ if debug:
     print("key: " + key)
     print("inp: " + inp)
 
-print(key)
-print(inp)
-
 
 def elongateKeytext(keytext, text):
+    if len(keytext) == len(text):
+        return keytext
+
     targetLength = len(text)
     newKeyText = ""
 
@@ -31,3 +31,33 @@ def elongateKeytext(keytext, text):
                 break
 
     return newKeyText
+
+
+key = elongateKeytext(key, inp)
+
+
+def stringToInt(text):
+    intList = []
+    for char in text:
+        intList.append(ord(char))
+
+    return intList
+
+
+def XORing(text, key):
+    textInts = stringToInt(text)
+    keyInts = stringToInt(key)
+    output = ""
+
+    for x, y in zip(textInts, keyInts):
+        output += chr(x ^ y)
+
+    return output
+
+
+print(inp)
+print(stringToInt(inp))
+print(key)
+print(stringToInt(key))
+
+print(XORing(inp, key))
