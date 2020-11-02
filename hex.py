@@ -55,9 +55,17 @@ def XORing(text, key):
     return output
 
 
-print(inp)
-print(stringToInt(inp))
-print(key)
-print(stringToInt(key))
+if mode == "human":
+    print(XORing(inp, key))
+elif mode == "numOut":
+    hexString = ""
+    for char in XORing(inp, key):
+        hexString += hex(ord(char))[2:] + " "
+    print(hexString)
 
-print(XORing(inp, key))
+# print(inp)
+# print(stringToInt(inp))
+# print(key)
+# print(stringToInt(key))
+
+# print(XORing(inp, key))
